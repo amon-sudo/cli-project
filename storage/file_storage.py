@@ -14,8 +14,11 @@ class FileStorage:
                 json.dump([], f)
 
     def load(self):
-        with open(self.filename, "r") as f:
-            return json.load(f)
+        try:
+            with open(self.filename, "r") as f:
+                return json.load(f)
+        except:
+            return []
 
     def save(self, data):
         with open(self.filename, "w") as f:
